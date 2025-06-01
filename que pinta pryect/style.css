@@ -1,0 +1,207 @@
+/* ———  PALETA ——— */
+:root{
+    /* tonos base */
+    --primary-900:#1C2331;          /* header/footer */
+    --primary-700:#27344d;
+    --accent-500:#1ABC9C;           /* turquesa */
+    --text-900:#27344d;
+    --text-600:#5E6E82;
+    --white:#FFFFFF;
+    --star:#F1C40F;
+
+    /* por categoría */
+    --food-500:#E67E22;
+    --outdoors-500:#27AE60;
+    --culture-500:#9B59B6;
+    --relax-500:#48C9B0;
+    --nightlife-500:#E91E63;
+    --sport-500:#E67E22;
+    --tech-500:#3498DB;
+
+    --bg-gradient:linear-gradient(135deg,#1C6DD0 0%,#1ABC9C 100%);
+}
+
+/* ———  GLOBAL ——— */
+body{
+    font-family:'Inter',Arial,sans-serif;
+    background:var(--bg-gradient);
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    color:var(--text-900);
+    line-height:1.6;
+}
+h1,h2,h3{font-family:'Poppins',sans-serif;margin:0}
+
+/* — HEADER — */
+header{
+    background:var(--bg-gradient);
+    text-align:center;
+    padding:2.5rem 1rem;
+    color:var(--white);
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+header h1{
+    font-size:3.5rem;          /* más grande */
+    font-weight:800;
+    letter-spacing:1px;
+}
+header p{font-size:1.1rem;opacity:.9}
+
+/* — FILTROS — */
+.filter-section{
+    background:var(--white);
+    padding:2rem;
+    border-radius:1rem;
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+    text-align:center;
+    margin-bottom:3rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.filter-section h2{
+    text-align:center;
+    margin:0 0 1.8rem 0;
+    font-weight:700;
+}
+.filters{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    justify-content:center;
+}
+.filters label{font-weight:600}
+.filters select,.filters input{
+    padding:.75rem 1rem;
+    border:1px solid #dfe3e8;
+    border-radius:.6rem;
+    font-size:1rem;
+    width:220px;
+    max-width:100%;
+}
+.filters button{
+    background:var(--accent-500);
+    color:var(--white);
+    border:none;
+    padding:.8rem 2rem;
+    border-radius:.6rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+.filters button:hover{
+    background:#17a589;
+    transform:translateY(-2px);
+}
+
+/* — CARRUSEL — */
+.plans-grid-section{padding:4rem 0;}
+.section-title{
+    text-align:center;
+    color:var(--white);
+    margin-bottom:2.5rem;
+    font-size:2.2rem;          /* título agrandado */
+}
+.plans-carousel-container{
+    position:relative;
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 60px;
+    overflow:hidden;
+}
+.plans-carousel{
+    display:flex;
+    gap:30px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding-bottom:2rem;
+}
+.plans-carousel::-webkit-scrollbar{display:none}
+
+.plan-card{
+    flex:0 0 380px;              /* más ancha */
+    scroll-snap-align:start;
+    background:var(--white);
+    border-radius:1.2rem;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    padding:2.2rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:.25s;
+    min-height:480px;
+    border-top:4px solid transparent; /* se colorea por categoría */
+}
+.plan-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 28px rgba(0,0,0,.12);
+}
+.plan-card h3{
+    color:var(--primary-700);
+    font-size:1.7rem;
+    font-weight:600;
+    margin-bottom:.8rem;
+}
+.plan-card p{color:var(--text-600);margin-bottom:1.2rem}
+.plan-card .location{
+    font-weight:700;
+    color:var(--accent-500);
+    display:block;
+    margin-bottom:1rem;
+}
+
+/* — COLOR POR CATEGORÍA — */
+.plan-card[data-category="food"]     {border-top-color:var(--food-500);}  /* naranja comida */
+.plan-card[data-category="outdoors"] {border-top-color:var(--outdoors-500);}  /* verde */
+.plan-card[data-category="culture"]  {border-top-color:var(--culture-500);}  /* violeta */
+.plan-card[data-category="relax"]    {border-top-color:var(--relax-500);}    /* teal claro */
+.plan-card[data-category="nightlife"]{border-top-color:var(--nightlife-500);}/* fucsia */
+.plan-card[data-category="sport"]    {border-top-color:var(--sport-500);}    /* naranja intenso */
+.plan-card[data-category="tech"]     {border-top-color:var(--tech-500);}     /* azul */
+
+/* — RATING — */
+.rating .fa-star{margin-right:2px;font-size:1.1rem;color:#e0e0e0}
+.rating .fa-star.filled,
+.rating .fa-star.fas{color:var(--star)}
+
+/* — NAVEGACIÓN — */
+.nav-button{
+    position:absolute;top:50%;transform:translateY(-50%);
+    background:rgba(28,35,49,.78);
+    color:var(--white);
+    border:none;
+    width:48px;height:48px;border-radius:50%;
+    cursor:pointer;font-size:1.3rem;
+    display:flex;align-items:center;justify-content:center;transition:.2s;
+}
+.nav-button:hover{background:var(--primary-700);transform:translateY(-50%) scale(1.05)}
+.nav-button.prev{left:0}.nav-button.next{right:0}
+
+/* — DOTS — */
+.carousel-dots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:1.5rem;
+    position:relative;
+    top:-10px;                /* sube los dots para que no monten el footer */
+}
+.dot{
+    width:12px;height:12px;background:#c0cad4;border-radius:50%;cursor:pointer;transition:.2s;
+}
+.dot.active{background:var(--accent-500);transform:scale(1.2)}
+
+/* — FOOTER — */
+footer{text-align:center;padding:2rem 1rem;background:var(--primary-900);color:var(--white);font-size:.9rem;margin-top:auto}
+
+/* — RESPONSIVE — */
+@media(max-width:768px){
+    header h1{font-size:2.7rem}
+    .plans-carousel-container{padding:0 20px}
+    .plan-card{flex:0 0 90%;scroll-snap-align:center}
+    .nav-button{display:none}
+}
